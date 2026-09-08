@@ -59,7 +59,7 @@ See sections below for detailed documentation, integration guidance, and tool re
 ## Documentation
 
 - **[Integration Guide](DOC/integration_guide/integration_guide.md)** -- comprehensive guide for `AOU_TOP` and `AOU_CORE_TOP` covering module interfaces, parameter list (including `FDI_CONFIG`), register map, activation flow, debugging, verification, timing constraints, power intent, and library cell replacement.
-- **[Micro-Architecture Specification](DOC/MAS/aou_core_mas.md)** -- AOU_CORE block-level architectural specification (datapaths, FIFO sizing, credit management, area, internal flows).
+- **[Micro-Architecture Specification](DOC/MAS/index.adoc)** -- AOU_CORE block-level architectural specification (datapaths, FIFO sizing, credit management, area, internal flows).
 - **[CSR Documentation](DOC/csr/README.md)** -- register map outputs (Markdown, C header, interactive HTML browser, IP-XACT, UVM model).
 - **Interactive HTML Register Browser** -- generated in `DOC/csr/html/` (see Tool Requirements below to generate).
 

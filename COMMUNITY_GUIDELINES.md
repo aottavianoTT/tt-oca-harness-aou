@@ -74,7 +74,7 @@ All contributors must follow our [Code of Conduct](CODE_OF_CONDUCT.md).
    - [CONTRIBUTING.md](CONTRIBUTING.md) - How to contribute, branch naming, coding standards
    - [DOC/integration_guide/integration_guide.md](DOC/integration_guide/integration_guide.md) - Integration guide for `AOU_CORE_TOP`
    - [DOC/csr/aou-core-csrs.md](DOC/csr/aou-core-csrs.md) - Register map reference
-   - [DOC/MAS/aou_core_mas.md](DOC/MAS/aou_core_mas.md) - Micro-Architecture Specification
+   - [DOC/MAS/index.adoc](DOC/MAS/index.adoc) - Micro-Architecture Specification
 
 2. **Search existing issues:**
    - Someone may have asked before

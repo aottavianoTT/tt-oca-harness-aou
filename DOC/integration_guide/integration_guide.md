@@ -97,7 +97,7 @@ matches your system's FDI bringup strategy:
 For detailed micro-architecture information -- including datapath
 internals, error handling, debugging features, and credit management --
 refer to the *AOU_CORE Micro-Architecture Specification*
-(`DOC/MAS/aou_core_mas.md`).
+(`DOC/MAS/index.adoc`).
 
 ---
 
@@ -643,7 +643,7 @@ To regenerate after editing the RDL source, see [DOC/csr/README.md](../csr/READM
   been sent through the AXI Slave Interface, and a subsequent actual B response arrives with an Error. SW can check the ID and error type of the transaction in which the error occurred by reading AOU_CORE.WRITE_EARLY_RESPONSE SFR. The interrupt can be cleared by writing '1' to the AOU_CORE.WRITE_EARLY_RESPONSE.WRITE_RESP_ERR SFR.
 
 - **INT_REQ_LINKRESET**
-  An interrupt that occurs when AOU_CORE receives a protocol violation. Refer to the *AOU_CORE Micro-Architecture Specification* (`DOC/MAS/aou_core_mas.md`) for debugging details. When AOU_CORE receives a protocol violation, SW needs to do SW reset AOU_CORE and re-enter the activation sequence.
+  An interrupt that occurs when AOU_CORE receives a protocol violation. Refer to the *AOU_CORE Micro-Architecture Specification* (`DOC/MAS/interrupts-errors.adoc`) for debugging details. When AOU_CORE receives a protocol violation, SW needs to do SW reset AOU_CORE and re-enter the activation sequence.
 
 ## 6. Activation Flow
 
