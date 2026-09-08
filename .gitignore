@@ -5,3 +5,7 @@ INTEG/ipxact/gen/
 INTEG/ipxact/schema/
 INTEG/uvm/
 logs/
+
+# asciidoctor-diagram's local render cache for the [plantuml] blocks in
+# DOC/MAS -- regenerated on every build, never hand-authored.
+DOC/MAS/assets/diag-*
