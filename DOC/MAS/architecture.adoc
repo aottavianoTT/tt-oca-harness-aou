@@ -6,7 +6,7 @@ ifdef::aou-imagesdir[]
 :imagesdir: {aou-imagesdir}
 endif::[]
 ifndef::aou-integration-xref[]
-:aou-integration-xref: integration.adoc
+:aou-integration-xref: ../integration_guide/integrator.adoc
 endif::[]
 
 [[aou-3-architecture]]
@@ -26,7 +26,7 @@ xref:figure-2[Figure 2] shows block diagram of current AOU_CORE. The AXI interfa
 
 Inside AXI4MUX_3X1_TOP, AXI aggregator is added for improving bus utilization. AXI aggregator combines narrow read & write data and send it to BUS. This functionality may modify AXI Len & Size. For example, AXI AR with 256-bit size & 16 burst length may transfer into 1024-bit size & 4 burst length. This operation can be controlled via SFR setting.
 
-AOU_CORE provides a parameterizable FDI interface; the data-path width is selected by [.monospaced]#++FDI_CONFIG++# ([.monospaced]#++FDI_CFG_SP_32B++# / [.monospaced]#++FDI_CFG_SP_64B++# / [.monospaced]#++FDI_CFG_SP_128B++# for single-PHY, [.monospaced]#++FDI_CFG_TP_32B_64B++# / [.monospaced]#++FDI_CFG_TP_64B_128B++# for two-PHY). See xref:{aou-integration-xref}#aou-64-configurable-parameters[Section 6.4] for the full table of [.monospaced]#++FDI_CONFIG++# values and resulting per-PHY widths.
+AOU_CORE provides a parameterizable FDI interface; the data-path width is selected by [.monospaced]#++FDI_CONFIG++# ([.monospaced]#++FDI_CFG_SP_32B++# / [.monospaced]#++FDI_CFG_SP_64B++# / [.monospaced]#++FDI_CFG_SP_128B++# for single-PHY, [.monospaced]#++FDI_CFG_TP_32B_64B++# / [.monospaced]#++FDI_CFG_TP_64B_128B++# for two-PHY). See xref:{aou-integration-xref}#aou-ig-parameter-list[Section 2] for the full table of [.monospaced]#++FDI_CONFIG++# values and resulting per-PHY widths.
 
 [[aou-32-tx_core]]
 === 3.2. TX_CORE
@@ -129,7 +129,7 @@ If the data received from the remote die has sdlen of 0(256bit data), the messag
 
 In addition, the depth of the Data FIFO is not 44. The depth has been determined under the assumption that the current bus data width is 512 bits. When the bus data width is 512 bits, a W message occupies 15 granules. Since the decoder in RX_CORE can decode 12 granules per cycle, the maximum W message can reach the FIFO once every 1.25 cycles (15G ÷ 12G/cycle = 1.25 cycles). Furthermore, as mentioned above, when the bus data width is 512 bits, each message is stored across two FIFO entries. Therefore, if the maximum turnaround time (TAT) to be covered is 50 ns (50 cycles), the depth can be set to 80 (50 / 1.25 x 2 = 80). Regarding the margin, Data FIFOpass:[']s depth is set to 88.
 
-When [.monospaced]#++FDI_CONFIG++# selects a 1024b (128B) FDI interface ([.monospaced]#++FDI_CFG_SP_128B++# or [.monospaced]#++FDI_CFG_TP_64B_128B++#), the per-chunk granule rate roughly doubles, so the per-RP [.monospaced]#++RP*_RX_W_FIFO_DEPTH++# / [.monospaced]#++RP*_RX_R_FIFO_DEPTH++# parameter defaults are bumped to 140 entries to keep the same effective TAT margin. See xref:{aou-integration-xref}#aou-64-configurable-parameters[Section 6.4] for the parameter defaults.
+When [.monospaced]#++FDI_CONFIG++# selects a 1024b (128B) FDI interface ([.monospaced]#++FDI_CFG_SP_128B++# or [.monospaced]#++FDI_CFG_TP_64B_128B++#), the per-chunk granule rate roughly doubles, so the per-RP [.monospaced]#++RP*_RX_W_FIFO_DEPTH++# / [.monospaced]#++RP*_RX_R_FIFO_DEPTH++# parameter defaults are bumped to 140 entries to keep the same effective TAT margin. See xref:{aou-integration-xref}#aou-ig-parameter-list[Section 2] for the parameter defaults.
 
 FIFOs are allocated for each RP, and the depth of the FIFOs for each RP is configurable.
 
